@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+function pullDown(){
     const pullDownButton = document.getElementById("lists");
 
     pullDownButton.addEventListener('mouseover', function() {
@@ -12,11 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
     pullDownButton.addEventListener('mouseleave', function() {
         this.removeAttribute("style", "background-color:red")
     });
-});
+};
 
 
 const pullDownButton = document.getElementById("lists")
 const pullDownParents = document.getElementById("pull-down")
+const pullDownChild = document.querySelectorAll(".pull-down-list")
+const currentlist = document.getElementById("current-list")
 
 pullDownButton.addEventListener("click", function() {
     if (pullDownParents.getAttribute("style") == "display:block;"){
@@ -27,3 +29,19 @@ pullDownButton.addEventListener("click", function() {
     console.log("表示）")
     }
 })
+
+pullDownChild.forEach(function(list) {
+    list.addEventListener("click", function() { 
+        const value = list.innerHTML
+        currentlist.innerHTML = value
+        console.log(value)
+        if (value === "リスト1") {
+            window.location.href = "https://fp-curriculum.com/";
+        }
+    })
+})
+
+window.addEventListener("loas", pullDown)
+
+
+
