@@ -1,14 +1,15 @@
-const pullDownButton = document.getElementById("lists");
-
+document.addEventListener('DOMContentLoaded', function() {
+    const pullDownButton = document.getElementById("lists");
 
     pullDownButton.addEventListener('mouseover', function() {
-        console.log('乗った');
+        pullDownButton.setAttribute("style", "background-color:blue")
     });
 
     pullDownButton.addEventListener('click', function() {
-        console.log('クリック');
+        pullDownButton.setAttribute("style", "background-color:green")
     });
 
-    pullDownButton.addEventListener('mouseout', function() {
-        console.log('外れた');
+    pullDownButton.addEventListener('mouseleave', function() {
+        pullDownButton.removeAttribute("style", "background-color:red")
     });
+});
